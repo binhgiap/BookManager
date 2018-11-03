@@ -41,7 +41,7 @@ div#content1 {
     margin-top: 150px;
 }
 
-div#header {width: 100%;height: 90px;background: #4caf50;}
+div#header {width: 100%;height: 90px;background: linear-gradient( 80deg, #3ca8e8 10%, #ec0dfd 89%);}
 
 div#header-phai {
     float: left;
@@ -72,12 +72,14 @@ a {
   -moz-transition: all 0.4s;
 }
 
-a.phai {
+a#phai {
     text-decoration: none;
     font-size: 35px;
 }
 
-a.phai:visited {
+
+
+a#phai:visited {
     color: none;
 }
 
@@ -511,12 +513,13 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ Book and Category ]*/
-#Book,#Category,#Add_Category,#Edit_Category {
+#Book,#Category,#Add_Category,#Edit_Category,#Add_Book,#Edit_Book {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-#Book td, #Book th,#Category td, #Category th,#Add_Category td, #Add_Category th,#Edit_Category td, #Edit_Category th {
+#Book td, #Book th,#Category td, #Category th,#Add_Category td, #Add_Category th,#Edit_Category td, #Edit_Category th,
+#Add_Book td, #Add_Book th,#Edit_Book td,#Edit_Book th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -524,14 +527,14 @@ iframe {
 
 #Book tr:hover,#Category tr:hover {background-color: #ddd;}
 
-#Book th,#Category th,#Add_Category th,#Edit_Category th{
+#Book th,#Category th,#Add_Category th,#Edit_Category th,#Add_Book th,#Edit_Book th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4CAF50;
+  background: #3ea6e8e8;
   color: white;
 }
-#Category{
+#Category,#Book{
   text-align: center;
 }
 button{
@@ -582,14 +585,15 @@ img.trai {
 img.anhnho{
   height: 100px;
 }
-#btn_AC,#btn_EC{
+#btn_AC,#btn_EC,#btn_AB,#btn_EB{
   margin-left: 38%;
 }
 
-div#Add_Category,#Edit_Category {
+div#Add_Category,#Edit_Category,#Add_Book,#Edit_Book {
   z-index: 4;
-  position: fixed;
+  position: absolute;
   top: 200px;
+  width: 22%;
   left: 38%;
   display: none;
 }
@@ -603,6 +607,6 @@ div#mix {
     background: #9e9e9ec4;
     display: none;
 }
-#myTable_AC tr,#myTable_EC tr {
+#myTable_AC tr,#myTable_EC tr,#myTable_AB tr,#myTable_EB tr {
     background: whitesmoke;
 }

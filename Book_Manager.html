@@ -1,224 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Book Manager Page</title>
-
-	<link rel="icon" href="./images/icons/book.png">
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
-
+    <meta charset="UTF-8">
+    <title>Book Manager Page</title>
+    <link rel="icon" href="./images/icons/book.png">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
 </head>
+
 <body>
-	<div id="header">
-		<div id="header-trai">
-			<img class="trai" src="./images/icons/menu.png" alt="Menu">
-			<h1 class="trai">Book Manager</h1>
-		</div>
-		<div id="header-phai">
-			<a class="phai" href="#">Log out</a>
-		</div>
-		
-	</div>
-
-</div>
-<div class="content">
-	<input type="text" id="myInput2" placeholder="Search for category names...">
-	<div id="TinhTong">
-		<input id="result" type="text">
-		<button id="btnSum">Tổng Sách</button>
-	</div>
-
-	<table id="Category">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>NumberOfBook</th>
-				<th>Seclect
-					<br>
-					<input type="checkbox" class="checkall" />
-				</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody id="myTable2">
-
-		</tbody>
-		<tr>
-			<th colspan="5">
-				<button id="btn_add_C">ADD Category</button>
-			</th>
-		</tr>
-	</table>
-
-</div>
-<br><br>
-<div>
-	<input type="text" id="myInput" placeholder="Search for books names...">
-	<table id="Book">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Author</th>
-				<th>CategoryId</th>
-				<th>Image</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody id="myTable">
-			<tr>
-				<td>1</td>
-				<td>Tôi Thấy Hoa Vàng Trên Cỏ Xanh</td>
-				<td>Cuốn sách viết về tuổi thơ nghèo khó ở một làng quê, bên cạnh đề tài tình yêu quen thuộc, lần đầu tiên Nguyễn Nhật Ánh đưa vào tác phẩm của mình những nhân vật phản diện và đặt ra vấn đề đạo đức như sự vô tâm, cái ác. 81 chương ngắn là 81 câu chuyện nhỏ của những đứa trẻ xảy ra ở một ngôi làng: chuyện về con cóc Cậu trời, chuyện ma, chuyện công chúa và hoàng tử, bên cạnh chuyện đói ăn, cháy nhà, lụt lội,... “Tôi thấy hoa vàng trên cỏ xanh” hứa hẹn đem đến những điều thú vị với cả bạn đọc nhỏ tuổi và người lớn bằng giọng văn trong sáng, hồn nhiên, giản dị của trẻ con cùng nhiều tình tiết thú vị, bất ngờ và cảm động trong suốt hơn 300 trang sách. Cuốn sách, vì thế có sức ám ảnh, thu hút, hấp dẫn không thể bỏ qua.</td>
-				<td>Nguyễn Nhật Ánh</td>
-				<td>CI1</td>
-				<td>
-					<a href="./images/toi_thay_hoa_vang.jpg">
-						<img class="anhnho" src="./images/toi_thay_hoa_vang.jpg">
-					</a>
-				</td>
-				<td>
-					<img id="edit" src="./images/icons/edit.png">
-					<img id="delete" src="./images/icons/delete.png">
-				</td>
-			</tr>
-
-			<tr>
-				<td>2</td>
-				<td>Thanh Xuân Không Hối Tiếc</td>
-				<td>Mỗi người có một cách khác nhau để sống những ngày tuổi trẻ, có người dành trọn nó cho những cuộc tình, có người dành trọn nó cho công việc, có người dành trọn nó để tự yêu thương mình, và cũng có những người chia tuổi trẻ của mình ra, để yêu một vài người, sau đó yêu mình, yêu người xung quanh mình, rồi đến một lúc nào đó thích hợp mới tiếp tục muốn yêu thêm một người cho đến hết cuộc đời.
-					Cái người ta hoài công tìm kiếm suốt một thời xanh trẻ, rốt cuộc không phải là một tình yêu điên cuồng mù quáng, lại càng không phải là những thứ vật chất phù du. Cuối cùng khi đi hết đoạn đường đầy tin yêu và khát vọng, người ta chỉ mong thấy được sự thanh thản bình yên trong sâu thẳm lòng mình.
-				Chúc bạn có một thanh xuân không hối tiếc!</td>
-				<td>Du Phong</td>
-				<td>CI2</td>
-				<td>
-					<a href="./images/thanhxuan.jpg">
-						<img class="anhnho" src="./images/thanhxuan.jpg">
-					</a>
-				</td>
-				<td>
-					<img id="edit" src="./images/icons/edit.png">
-					<img id="delete" src="./images/icons/delete.png">
-				</td>
-
-			</tr>
-
-			<tr>
-				<td>3</td>
-				<td>Bùng Nổ Bitcoin - Công Nghệ Blockchain, Fintech 4.0 hay Bong Bóng?</td>
-				<td>
-					Tại sao Bitcoin lại ra đời?
-					Bitcoin là gì?
-					Bitcoin có phải là bong bóng không?
-					ICO là gì?
-					Tại sao Bitcoin lại có giá trị cao?
-					Tại sao cơ chế công nghệ Blockchain lại là phát minh thay đổi nhân loại?
-					Có thể ứng dụng gì vào cuộc cách mạng công nghệ Fintech 4.0?
-				Tất cả sẽ được giải đáp trong quyển sách Bùng Nổ Bitcoin - Tiền Tệ Thay Thế Sẽ Thay Đổi Thế Giới Như Thế Nào mà SG Trading sắp giới thiệu đến các bạn. Bùng Nổ Bitcoin tiếp cận Bitcoin từ góc độ phức tạp hơn thay vì chỉ tập trung vào giao dịch. Tác giả Brian Kelly, một chuyên gia đầu tư tài chính - tiền tệ với hơn 20 năm kinh nghiệm đã thực hiện một nghiên cứu chuyên sâu vào trong cuộc cách mạng Bitcoin và khám phá ra tiềm năng thay đổi toàn bộ xã hội của công nghệ này.</td>
-				<td>Nhà Xuất Bản Kinh Tế TPHCM</td>
-				<td>CI3</td>
-				<td>
-					<a href="./images/bungno.jpg">
-						<img class="anhnho" src="./images/bungno.jpg">
-					</a>
-				</td>
-				<td>
-					<img id="edit" src="./images/icons/edit.png">
-					<img id="delete" src="./images/icons/delete.png">
-				</td>
-
-			</tr>
-
-			<tr>
-				<td>4</td>
-				<td>Nâng Lên Được, Đặt Xuống Được</td>
-				<td>
-					“Nâng lên được, đặt xuống được” không chỉ là thông diệp, là cách sống, tác giả còn viết chạm và sâu về hành trình của những người được xem là Cô độc. Hướng nội đôi khi khiến chúng ta thành công hạnh phúc chậm hơn. Nhưng chắc chắn sẽ bền lâu hơn. Nỗi sợ sinh ra để ngáng chân ta, khuyết điểm sinh ra để được lấp đầy, nội tâm sinh ra để được thấu hiểu. Và chúng ta được sinh ra xứng đáng để hạnh phúc dù theo cách này hay cách khác. Hành trình học cách nâng đặt, học cách buông bỏ, vượt lên những mất mát tổn thương để thấy lòng mình vơi nhẹ, để đủ bản lĩnh, đủ mạnh mẽ đối diện với giông gió cuộc đời là hành trình không dễ dàng.
-
-					“Nâng lên được, đặt xuống được” dành cho bạn sự thấu hiểu để bạn tin rằng: Tâm an thì đời an. Tâm sóng gió thì đời đảo điên.
-
-					Vậy nên an nhiên hay không? Hạnh phúc hay không chính là phụ thuộc ở việc bạn có dám buông bỏ, có can đảm sống cho những điều nhỏ bé bên trong mình hay không?
-				</td>
-				<td>Trương Di</td>
-				<td>CI4</td>
-				<td>
-					<a href="./images/nanglen.jpg">
-						<img class="anhnho" src="./images/nanglen.jpg">
-					</a>
-				</td>
-				<td>
-					<img id="edit" src="./images/icons/edit.png">
-					<img id="delete" src="./images/icons/delete.png">
-				</td>
-			</tr>
-		</tbody>
-		<tr>
-			<th colspan="7">	
-				<button>ADD BOOK</button>
-			</th>
-		</tr>
-
-	</table>
-	<br>
-	<br>
-	<br>
-</div>
-<div id="mix">
-</div>
-<div id="Add_Category">
-	<table id="myTable_AC">
-		<tr>
-			<th colspan="2">Add Category</th>
-		</tr>
-		<tr>
-			<td>Name</td>
-			<td><input id="NC" class="input100" type="text" placeholder="Type Category Name"></td>
-		</tr>
-		<tr>
-			<td>NumberOfBook</td>
-			<td><input id="NOBC" class="input100" type="text" placeholder="Type NumberOfBook"></td>
-		</tr>
-		<tr>
-			<th colspan="2">	
-				<button id="btn_AC">Add Category</button>
-			</th>
-		</tr>
-	</table>
-</div>
-
-<div id="Edit_Category">
-	<table id="myTable_EC">
-		<tr>
-			<th colspan="2">Edit Category</th>
-		</tr>
-		<tr>
-			<td>Name</td>
-			<td><input id="NC" class="input100" type="text" placeholder="Type Category Name"></td>
-		</tr>
-		<tr>
-			<td>NumberOfBook</td>
-			<td><input id="NOBC" class="input100" type="text" placeholder="Type NumberOfBook"></td>
-		</tr>
-		<tr>
-			<th colspan="2">	
-				<button id="btn_EC">Edit Category</button>
-			</th>
-		</tr>
-	</table>
-</div>
-
-
-<!-- Load js -->
-<script src="js/main.js"></script>
-<script src="js/fancy.js"></script>
+    <div id="header">
+        <div id="header-trai">
+            <img class="trai" src="./images/icons/menu.png" alt="Menu">
+            <h1 class="trai">Book Manager</h1>
+        </div>
+        <div id="header-phai">
+            <a id="phai" href="#">Log out</a>
+        </div>
+    </div>
+    <div class="content">
+        <input type="text" id="myInput2" placeholder="Search for category names...">
+        <div id="TinhTong">
+            <input id="result" type="text">
+            <button id="btnSum">Tổng Sách</button>
+        </div>
+        <table id="Category">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>NumberOfBook</th>
+                    <th>Seclect
+                        <br>
+                        <input type="checkbox" class="checkall" />
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="myTable2">
+            </tbody>
+            <tr>
+                <th colspan="5">
+                    <button id="btn_add_C">ADD Category</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div>
+        <input type="text" id="myInput" placeholder="Search for books names...">
+        <table id="Book">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Author</th>
+                    <th>CategoryId</th>
+                    <th>Image</th>
+                    <th>Seclect
+                        <br>
+                        <input type="checkbox" class="checkall" />
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+            </tbody>
+            <tr>
+                <th colspan="8">
+                    <button id="btn_B">ADD BOOK</button>
+                </th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div id="mix">
+    </div>
+    <div id="Add_Category">
+        <table id="myTable_AC">
+            <tr>
+                <th colspan="2">Add Category</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input id="NC" class="input100" type="text" placeholder="Type Category Name"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="btn_AC">Add Category</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div id="Edit_Category">
+        <table id="myTable_EC">
+            <tr>
+                <th colspan="2">Edit Category</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input id="NCE" class="input100" type="text" placeholder="Type Category Name"></td>
+            </tr>
+            <tr>
+                <td>NumberOfBook</td>
+                <td><input id="NOBCE" class="input100" type="text" placeholder="Type NumberOfBook"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="btn_EC">Edit Category</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div id="Add_Book">
+        <table id="myTable_AB">
+            <tr>
+                <th colspan="2">Add Book</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input id="NB" class="input100" type="text" placeholder="Type Category Name"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input id="DS" class="input100" type="text" placeholder="Type Description"></td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td><input id="At" class="input100" type="text" placeholder="Type Author"></td>
+            </tr>
+            <tr>
+                <td>CategoryId</td>
+                <td>
+                    <select id="CID">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input id="IM" class="input100" type="text" placeholder="Type Image"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="btn_AB">Add Book</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div id="Edit_Book">
+        <table id="myTable_EB">
+            <tr>
+                <th colspan="2">Edit Book</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input id="NB" class="input100" type="text" placeholder="Type Category Name"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input id="DS" class="input100" type="text" placeholder="Type Description"></td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td><input id="At" class="input100" type="text" placeholder="Type Author"></td>
+            </tr>
+            <tr>
+                <td>CategoryId</td>
+                <td>
+                    <select id="CID">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input id="IM" class="input100" type="text" placeholder="Type Image"></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="btn_EB">Edit Book</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <!-- Load js -->
+    <script src="js/main.js"></script>
+    <script src="js/fancy.js"></script>
 </body>
+
 </html>

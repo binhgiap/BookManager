@@ -1,0 +1,205 @@
+﻿/*Add Category*/
+    var cate = [];
+    var count = 0;
+
+    function Load_Data_Cate(argument) {
+        //Temple_Cate();
+        var lscate = JSON.parse(localStorage.getItem("category"));
+        count = lscate.length;
+        console.log(lscate.length);
+        var a;
+        if(lscate){
+            a = lscate.length;
+            for (var i = 0; i < a; i++) {
+
+                $('tbody#myTable2').append(`
+                    <tr>
+
+                    <td>${lscate[i].ID}</td>
+                    <td>${lscate[i].Name}</td>
+                    <td>${lscate[i].NOB}</td>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>
+                    <img class="edit" src="./images/icons/edit.png">
+                    <img class="delete" src="./images/icons/delete.png">
+                    </td>
+
+                    </tr>`
+                    );
+            }
+        }
+
+    }
+    Load_Data_Cate();
+
+
+
+    $('#btn_add_C').click(function(event) {
+        /* Act on the event */
+        $('div#mix').fadeIn('fast', function() {
+
+        });;
+        $('#Add_Category').fadeIn('slow', function() {
+        });
+    });
+
+    $('div#mix').click(function(event) {
+        /* Act on the event */
+        $('#Add_Category').fadeOut('slow', function() {
+        });
+        $(this).fadeOut('slow');
+        $('#Edit_Category').fadeOut('slow', function() {
+        });
+    });
+
+    function check_cate(cg) {
+     var check = 0;
+     for (var i = 0; i < cate.length; i++) {
+         if(cate[i].Name.toLowerCase().indexOf(cg.Name.toLowerCase())>-1)
+         {
+            check++;
+        }
+    }
+    return check;
+}
+
+$('#btn_AC').click(function(event) {
+    count++;
+    let IDS = "CI"+count;
+    let NameS = $('input#NC').val();
+    let NOBC = $('input#NOBC').val();
+
+    var cg = new AddCategory(IDS,NameS,NOBC);
+
+    var check = check_cate(cg);
+
+    if(check == 0){
+        $('tbody#myTable2').append(`
+            <tr>
+            <td>${cg.ID}</td>
+            <td>${cg.Name}</td>
+            <td>${cg.NOB}</td>
+            <td><input type="checkbox" class="checkbox" /></td>
+            <td>
+            <img id="edit" src="./images/icons/edit.png">
+            <img id="delete" src="./images/icons/delete.png">
+            </td>
+
+            </tr>`
+            );
+        cate.push(cg);
+        localStorage.setItem("category", JSON.stringify(cate));
+        $('#Add_Category').fadeOut('slow', function() {
+        });
+        $('div#mix').fadeOut('slow');
+    }
+    else if (check == 0 && NameS != "" && NOBC != "") {
+        alert(`Không được để trống \n Xin vui lòng nhập lại !`);
+    }
+    else{
+        alert(`Thể loại đã tồn tại \n Xin vui lòng nhập lại !`);
+    }
+    
+});
+
+
+
+
+
+
+
+
+
+/*Show Edit*/
+    // $('#myTable2').click(function(event) {
+
+    // });
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+
+    function AddCategory(ID,Name,NOB) {
+        this.ID = ID;
+        this.Name = Name;
+        this.NOB = NOB;
+    }
+
+
+    function Temple_Cate() {
+        count++;
+        var ID1 = "CI"+count;
+        var cg1 = new AddCategory(ID1,"Sách Thiếu Nhi","1");
+        count++;
+        var ID2 = "CI"+count;
+        var cg2 = new AddCategory(ID2,"Sách Văn Học","1");
+        count++;
+        var ID3 = "CI"+count;
+        var cg3 = new AddCategory(ID3,"Sách Kinh Tế","1");
+        count++;
+        var ID4 = "CI"+count;
+        var cg4 = new AddCategory(ID4,"Sách Kỹ Năng","1");
+
+        cate.push(cg1);
+        cate.push(cg2);
+        cate.push(cg3);
+        cate.push(cg4);
+
+        localStorage.setItem("category", JSON.stringify(cate));
+    }
+
+    /*Delete Category*/
+
+    function deleteCate(e) {
+        // body....splice(stt,1);
+
+        cate = cate.filter(function(index) {
+            return index.ID != e;
+        });
+
+        localStorage.setItem("category", JSON.stringify(cate));
+    }
+    // $('#Category').click(function(event) {
+
+       $(".delete").click(function() {
+        $("#myTable2 tr").find('input').each(function() {
+            if ($(this).is(":checked")) {
+
+              deleteCate($(this).parents('tr').find('td:eq(0)').text());
+              $(this).parents("tr").remove();
+
+          }
+
+      });
+    });
+
+       $('.edit').click(function(event) {
+        /* Act on the event */
+
+        $('div#mix').fadeIn('fast', function() {
+
+        });;
+        $('#Edit_Category').fadeIn('slow', function() {
+        });
+
+    });
